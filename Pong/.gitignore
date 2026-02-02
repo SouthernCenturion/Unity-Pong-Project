@@ -1,0 +1,25 @@
+
+# Unity generated folders
+Pong/[Ll]ibrary/
+Pong/[Tt]emp/
+Pong/[Oo]bj/
+Pong/[Bb]uild/
+Pong/[Bb]uilds/
+Pong/[Ll]ogs/
+Pong/[Uu]ser[Ss]ettings/
+
+# Unity files
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Visual Studio cache
+.vs/
