@@ -8,7 +8,8 @@ Pong/[Ll]ogs/
 Pong/[Uu]ser[Ss]ettings/
 Pong/[Mm]emoryCaptures/
 Pong/[Rr]ecordings/
-
+# ParrelSync
+Pong_clone_0/
 # Unity files
 *.pidb
 *.booproj
@@ -20,11 +21,9 @@ Pong/[Rr]ecordings/
 *.log
 *.blend1
 *.blend1.meta
-
 # OS files
 .DS_Store
 Thumbs.db
-
 # Visual Studio cache
 .vs/
 *.csproj
@@ -34,7 +33,6 @@ Thumbs.db
 *.tmp
 *.user
 *.userprefs
-
 # Builds
 *.apk
 *.aab
