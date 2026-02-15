@@ -1,11 +1,25 @@
 using UnityEngine;
 
-public class BallMovement : MonoBehaviour
+public class BallMovement : MonoBehaviour, ICollidable
 {
     private Rigidbody2D rb;
     
     private float speed;
     private Vector2 direction;
+
+    public void OnHit(Collision2D collision)
+    {
+        Debug.Log("Ball hit: " + collision.gameObject.name);
+
+        if (collision.gameObject.GetComponent<PaddleController>() != null)
+        {
+            direction = new Vector2(-direction.x, direction.y);
+        }
+        else
+        {
+            direction = new Vector2(direction.x, -direction.y);
+        }
+    }
     
     public float GetSpeed()
     {
@@ -28,7 +42,7 @@ public class BallMovement : MonoBehaviour
         direction = newDirection.normalized;
         UpdateVelocity();
     }
-    
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -46,14 +60,15 @@ public class BallMovement : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<PaddleController>() != null)
-        {
-            direction = new Vector2(-direction.x, direction.y);
-        }
-        else
-        {
-            direction = new Vector2(direction.x, -direction.y);
-        }
+        OnHit(collision);
+        ICollidable collidable = collision.gameObject.GetComponent<ICollidable>();
+        
+            if (collidable != null)
+            {
+                collidable.OnHit(collision);
+            }
+        
+        
     }
     
     private void UpdateVelocity()

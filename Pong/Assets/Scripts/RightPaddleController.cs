@@ -1,9 +1,13 @@
 using UnityEngine;
+using Unity.Netcode;
 
 public class RightPaddleController : PaddleController
 {
     protected override float GetInputAxis()
     {
-        return Input.GetAxis("RightPaddle");
+        if (IsOwner)
+        {
+            return Input.GetAxis("RightPaddle");
+        }
     }
 }
